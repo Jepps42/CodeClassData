@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -16,18 +17,52 @@ public class GameManager : MonoBehaviour
     //Make a list of strings
     public List<string> stuList = new List<string>();
 
+    private GameObject[] floors;
+
+    //Make alist for floors
+    public List<GameObject> flList;
+
+    //Make a stack for students
+    //Stack in LIFO (Last in First Out)
+    public Stack<string> stuStack = new Stack<string>();
+
+    //Make a queue for students
+    //Queue is FIFO (First in First Out)
+    public Queue<string> stuQueue = new Queue<string>();
+
+
     // Start is called before the first frame update
     void Start()
     {
         stuList.AddRange(students);
         students[6] = stu1;
+        //floors = GameObject.FindGameObjectsWithTag("Floors");
         //Remove absent students from the list
         stuList.Remove("Evri");
+
+        //flList.AddRange(floors);
+
+        //Add every student inside the list stuList to my stack
+        foreach (string s in stuList)
+        {
+            stuStack.Push(s);
+        }
+
+        Debug.Log(stuStack.Pop());
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //Print the number of items in the list and array
+        //LIST COUNT
+        //Debug.Log(stuList.Count);
+        //ARRAY LENGTH
+        //Debug.Log(students.Length);
+        //-1 for <= no -1 for <
+        /*for (int i = 0; i < students.Length ; i++)
+        {
+            Debug.Log(students[i]);
+        }*/
     }
 }
