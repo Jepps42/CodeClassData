@@ -31,6 +31,9 @@ public class GameManager : MonoBehaviour
     public Queue<string> stuQueue = new Queue<string>();
 
 
+    //Make an ArrayList
+     public ArrayList stuff = new ArrayList(); 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +43,9 @@ public class GameManager : MonoBehaviour
         //Remove absent students from the list
         stuList.Remove("Evri");
 
+        stuff.Add(stu1);
+        stuff.Add(15);
+        stuff.Add(this.gameObject);
         //flList.AddRange(floors);
 
         //Add every student inside the list stuList to my stack
@@ -49,6 +55,8 @@ public class GameManager : MonoBehaviour
         }
 
         Debug.Log(stuStack.Pop());
+
+        Debug.Log(stuff[1].GetType().Name);
     }
 
     // Update is called once per frame
